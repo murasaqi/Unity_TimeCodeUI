@@ -7,5 +7,5 @@
 Add package from git url.  
 
 ```
-https://github.com/murasaqi/Unity_TimeCodeUI.git?path=/Assets/Unity_TimeCodeUI
+https://github.com/murasaqi/Unity_TimeCodeUI.git?path=/Assets/TimeCodeUI
 ```
