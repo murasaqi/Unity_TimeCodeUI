@@ -31,11 +31,11 @@ namespace TimeCodeUI
                 m_textMeshProUGUI.autoSizeTextContainer = true;
                 stringBuilder.Clear();
                 var timelineAsset = m_PlayableDirector.playableAsset as TimelineAsset;
-                var fps = timelineAsset.editorSettings.frameRate;
+                var fps = (float)timelineAsset.editorSettings.frameRate;
                 var dateTime = new TimeSpan(0,0,(int)m_PlayableDirector.time);
                 stringBuilder.Append(dateTime.ToString(@"hh\:mm\:ss"));
                 stringBuilder.Append(" ");
-                stringBuilder.Append((fps * m_PlayableDirector.time));
+                stringBuilder.Append((Mathf.CeilToInt(fps * (float)m_PlayableDirector.time)));
                 stringBuilder.Append("f");
                 if (m_textMeshProUGUI != null) m_textMeshProUGUI.text = stringBuilder.ToString();
 
