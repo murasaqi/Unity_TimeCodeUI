@@ -1,7 +1,7 @@
 # Unity_TimeCodeUI
 
 
-![demoImage](https://github.com/murasaqi/Unity_TimeCodeUI/Docs/preview.gif)  
+![demoImage](https://github.com/murasaqi/Unity_TimeCodeUI/blob/main/Docs/preview.gif)  
 
 ## install
 Add package from git url.  
