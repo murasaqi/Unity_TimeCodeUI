@@ -1,0 +1,13 @@
+{
+  "author": "murasaqi",
+  "dependencies": { },
+  "description": "Timecode UI",
+  "displayName": "TimeCodeUI",
+  "keywords": [ "unity" ],
+  "license": "SEE LICENSE IN LICENSE",
+  "name": "com.murasaqi.tools.timecodeui",
+  "repository": "https://github.com/murasaqi/Unity_TimeCodeUI",
+  "unity": "2020.3",
+  "unityRelease": "0f2",
+  "version": "0.1.2"
+}
