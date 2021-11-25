@@ -15,6 +15,8 @@ namespace TimeCodeUI
     {
         [SerializeField] private TextMeshProUGUI m_textMeshProUGUI;
         [SerializeField] private PlayableDirector m_PlayableDirector;
+
+        [SerializeField] private bool m_viewEnableTrackNames = false;
         private StringBuilder stringBuilder;
         // Start is called before the first frame update
         void Start()
@@ -31,6 +33,16 @@ namespace TimeCodeUI
                 m_textMeshProUGUI.autoSizeTextContainer = true;
                 stringBuilder.Clear();
                 var timelineAsset = m_PlayableDirector.playableAsset as TimelineAsset;
+                if (m_viewEnableTrackNames)
+                {
+                    
+                    var tracks = timelineAsset.GetOutputTracks();
+
+                    foreach (var t in tracks)
+                    {
+                        if (!t.muted) stringBuilder.AppendLine(t.name);
+                    }
+                }
                 var fps = (float)timelineAsset.editorSettings.frameRate;
                 var dateTime = new TimeSpan(0,0,(int)m_PlayableDirector.time);
                 stringBuilder.Append(dateTime.ToString(@"hh\:mm\:ss"));

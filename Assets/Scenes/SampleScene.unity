@@ -589,5 +589,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5099094042613788232, guid: d6b5ecd4a30d89844881f70e2fbe9b8f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 190.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 5099094042613788232, guid: d6b5ecd4a30d89844881f70e2fbe9b8f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 42.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 5099094042613788232, guid: d6b5ecd4a30d89844881f70e2fbe9b8f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5099094042613788232, guid: d6b5ecd4a30d89844881f70e2fbe9b8f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5099094042613788232, guid: d6b5ecd4a30d89844881f70e2fbe9b8f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5099094042613788233, guid: d6b5ecd4a30d89844881f70e2fbe9b8f,
+        type: 3}
+      propertyPath: m_viewEnableTrackNames
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6b5ecd4a30d89844881f70e2fbe9b8f, type: 3}
