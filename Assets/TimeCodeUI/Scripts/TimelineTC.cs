@@ -11,13 +11,14 @@ namespace TimeCodeUI
 {
     [ExecuteAlways]
     
-    public class TimeCodeTMP : MonoBehaviour
+    public class TimelineTC : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI m_textMeshProUGUI;
         [SerializeField] private PlayableDirector m_PlayableDirector;
-
-        [SerializeField] private bool m_viewEnableTrackNames = false;
-        private StringBuilder stringBuilder;
+        [SerializeField] private string format = "HH:mm:ss";
+        [SerializeField] private bool viewFrame = false;
+        [SerializeField] private bool viewEnableTrackNames = false;
+        private StringBuilder _stringBuilder;
         // Start is called before the first frame update
         void Start()
         {
@@ -27,29 +28,33 @@ namespace TimeCodeUI
         // Update is called once per frame
         void Update()
         {
-            if (stringBuilder == null) stringBuilder = new StringBuilder();
+            if (_stringBuilder == null) _stringBuilder = new StringBuilder();
             if (m_PlayableDirector != null)
             {
                 m_textMeshProUGUI.autoSizeTextContainer = true;
-                stringBuilder.Clear();
+                _stringBuilder.Clear();
                 var timelineAsset = m_PlayableDirector.playableAsset as TimelineAsset;
-                if (m_viewEnableTrackNames)
+                if (viewEnableTrackNames)
                 {
                     
                     var tracks = timelineAsset.GetOutputTracks();
 
                     foreach (var t in tracks)
                     {
-                        if (!t.muted) stringBuilder.AppendLine(t.name);
+                        if (!t.muted) _stringBuilder.AppendLine(t.name);
                     }
                 }
                 var fps = (float)timelineAsset.editorSettings.frameRate;
-                var dateTime = new TimeSpan(0,0,(int)m_PlayableDirector.time);
-                stringBuilder.Append(dateTime.ToString(@"hh\:mm\:ss"));
-                stringBuilder.Append(" ");
-                stringBuilder.Append((Mathf.CeilToInt(fps * (float)m_PlayableDirector.time)));
-                stringBuilder.Append("f");
-                if (m_textMeshProUGUI != null) m_textMeshProUGUI.text = stringBuilder.ToString();
+                var timeSpan = new TimeSpan(0,0,(int)m_PlayableDirector.time);
+                var dateTime = new DateTime(timeSpan.Ticks);
+                _stringBuilder.Append(dateTime.ToString(format));
+                if (viewFrame)
+                {
+                    _stringBuilder.Append(" ");
+                    _stringBuilder.Append((Mathf.CeilToInt(fps * (float)m_PlayableDirector.time)));
+                    _stringBuilder.Append("f");     
+                }
+                if (m_textMeshProUGUI != null) m_textMeshProUGUI.text = _stringBuilder.ToString();
 
 
             }
